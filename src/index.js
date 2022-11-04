@@ -1,43 +1,38 @@
 import './style.css';
+import Todos from './todos.js';
 
 const list = document.getElementById('list');
+const input = document.getElementById('input');
 
-const TodoList = [
-  {
-    index: 1,
-    description: 'DO dishes',
-    completed: false,
-  },
+const MyTodos = new Todos();
 
-  {
-    index: 3,
-    description: 'clean house',
-    completed: false,
-  },
-
-  {
-    index: 2,
-    description: 'go to supermarket',
-    completed: false,
-  },
-];
-
-function addTodo() {
-  TodoList.sort((a, b) => a.index - b.index).forEach((todo) => {
-    const item = `
-  <li class="item">
-            <div>
-              <input type="checkbox" id=${todo.index} name="checkbox" />
-              <span>${todo.description}</span>
-            </div>
-            <i class="fa-regular fa-ellipsis-vertical"></i>
-          </li>
-  `;
-
-    list.insertAdjacentHTML('beforeend', item);
-  });
-}
+let id = MyTodos.TodoList.length;
 
 window.onload = () => {
-  addTodo();
+  MyTodos.renderTodos();
 };
+
+document.addEventListener('keydown', (event) => {
+  if (event.code === 'Enter') {
+    const toDo = input.value;
+    if (toDo) {
+      MyTodos.addTodo(toDo, id);
+      // eslint-disable-next-line no-plusplus
+      id++;
+    }
+    input.value = '';
+  }
+});
+
+list.addEventListener('click', (event) => {
+  const element = event.target;
+  if (element.getAttribute('name') === 'checkbox') {
+    MyTodos.completeTodo(element);
+  } else if (element.tagName === 'I') {
+    if (element.getAttribute('name') === 'update') {
+      MyTodos.updateTodo(element);
+    } else if (element.getAttribute('name') === 'remove') {
+      MyTodos.removeTodo(element);
+    }
+  }
+});
