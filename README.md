@@ -37,7 +37,7 @@ If you remove some book, they are removed from screen and from local storage.
 
 ### Deployment
 
-Not available yet.
+[Demo](https://vanelnw.github.io/Microverse-To-Do-List/dist/)
 
 ## Authors
 
