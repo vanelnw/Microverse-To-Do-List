@@ -50,14 +50,14 @@ export default class Todos {
 
   removeTodo(element) {
     const cuurId = parseInt(element.id, 10);
-    element.parentNode.parentNode.removeChild(element.parentNode);
+
     this.TodoList = this.TodoList.filter((todo) => todo.index !== cuurId);
 
-    // eslint-disable-next-line no-plusplus
-    for (let i = cuurId; i < this.TodoList.length; i++) {
+    for (let i = cuurId; i < this.TodoList.length; i += 1) {
       this.TodoList[i].index -= 1;
     }
-
+    element.parentNode.parentNode.replaceChildren('');
+    this.renderTodos();
     localStorage.setItem('todos', JSON.stringify(this.TodoList));
   }
 
