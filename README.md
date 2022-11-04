@@ -15,7 +15,7 @@ Each Tasks have a button to remove them from the List and a checkBox to mark it 
 
 ## Live Demo
 
-Not available yet.
+[Demo](https://vanelnw.github.io/Microverse-To-Do-List/dist/)
 
 ## Getting Started
 
@@ -37,7 +37,7 @@ If you remove some book, they are removed from screen and from local storage.
 
 ### Deployment
 
-[Demo](https://vanelnw.github.io/Microverse-To-Do-List/dist/)
+Not available yet.
 
 ## Authors
 
