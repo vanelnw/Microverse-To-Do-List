@@ -15,34 +15,17 @@
   <body>
     <div class="app_container">
       <div class="app_inner">
-        <div class="head">Today's To Do <i class="fa-light fa-rotate"></i></div>
-        <div class="input_field">
-          <input type="text" placeholder="Add to your List" />
+        <div class="header">
+          Today's To Do
+          <div class="clear"><i class="fa-solid fa-arrows-rotate"></i></div>
         </div>
-        <ul>
-          <li>
-            <div>
-              <input type="checkbox" id="horns" name="horns" />
-              <span>wash the dishes</span>
-            </div>
-            <i class="fa-thin fa-ellipsis-vertical"></i>
-          </li>
-          <li>
-            <div>
-              <input type="checkbox" id="horns" name="horns" />
-              <span>complete the to do list project</span>
-            </div>
-            <i class="fa-thin fa-ellipsis-vertical"></i>
-          </li>
-          <li>
-            <div>
-              <input type="checkbox" id="horns" name="horns" />
-              <span>wash the dishes</span>
-            </div>
-            <i class="fa-thin fa-ellipsis-vertical"></i>
-          </li>
+        <div class="input_field">
+          <input type="text" id="input" placeholder="Add to your List" />
+        </div>
+        <ul id="list">
+         
         </ul>
-        <div class="completed_todo">Clean all completed</div>
+        <div class="clear_completed_todo">Clean all completed</div>
       </div>
     </div>
   </body>
