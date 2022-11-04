@@ -40,11 +40,6 @@ i {
   border-bottom: 1px solid;
 }
 
-.item.done input {
-	text-decoration: line-through;
-	color: var(--grey);
-}
-
 .clear i:hover {
   cursor: pointer;
   text-shadow: 1px 3px 5px #000;
@@ -65,12 +60,18 @@ i {
   font-size: 15px;
 }
 
+.item.done input {
+  text-decoration: line-through;
+  color: var(--grey);
+}
+
 .input_field > input::placeholder {
   font-style: italic;
 }
 
-#Todo{
-   width: 90%;
+#Todo {
+  width: 90%;
+
   /* height: 35px; */
   outline: none;
   background-color: transparent;
@@ -91,8 +92,4 @@ ul > li {
   text-align: center;
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.1);
-}
-
-.LINE_THROUGH{
-  text-decoration: line-through;
 }
