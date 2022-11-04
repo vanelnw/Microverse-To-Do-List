@@ -12,13 +12,12 @@ window.onload = () => {
   MyTodos.renderTodos();
 };
 
-document.addEventListener('keydown', (event) => {
+input.addEventListener('keydown', (event) => {
   if (event.code === 'Enter') {
     const toDo = input.value;
     if (toDo) {
       MyTodos.addTodo(toDo, id);
-      // eslint-disable-next-line no-plusplus
-      id++;
+      id += 1;
     }
     input.value = '';
   }
