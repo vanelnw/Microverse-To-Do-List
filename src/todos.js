@@ -2,7 +2,7 @@ function displayTaks(id, todo, checked) {
   const list = document.getElementById('list');
   const done = checked ? 'done' : '';
   const item = `
-  <li class="item ${done}">       
+  <li class="item ${done}" id="item">       
               <input type="checkbox" id=${id} name="checkbox" ${checked}/>
               <input type="text" id="Todo" value=${todo} name="todo" readonly/>
             <i class="fa-solid fa-ellipsis-vertical" id=${id} name="update"></i>
