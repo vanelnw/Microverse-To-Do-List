@@ -1,53 +1,44 @@
-import './style.css';
-import Todos from './todos.js';
+import "./style.css";
+import Todos from "./todos.js";
+import { addToLocalStorage } from "./localStorage";
 
-const list = document.getElementById('list');
-const input = document.getElementById('input');
-const clearCompleteTodo = document.querySelector('.clear_completed_todo');
-const clearAll = document.querySelector('.clear');
+const list_todo = document.getElementById("todo-lists");
+const clearCompleteTodo = document.querySelector(".clear_completed_todo");
+const clearAll = document.querySelector(".clear");
+const form = document.getElementById("form");
 
 const MyTodos = new Todos();
 
-let id = MyTodos.TodoList.length;
+MyTodos.renderTodos();
 
-window.onload = () => {
-  MyTodos.renderTodos();
-};
-
-clearAll.addEventListener('click', () => {
+clearAll.addEventListener("click", () => {
   MyTodos.TodoList = [];
-  list.replaceChildren('');
-  localStorage.setItem('todos', JSON.stringify(MyTodos.TodoList));
+  list_todo.replaceChildren("");
+  addToLocalStorage(MyTodos.TodoList);
 });
 
-clearCompleteTodo.addEventListener('click', () => {
+clearCompleteTodo.addEventListener("click", () => {
   MyTodos.TodoList = MyTodos.TodoList.filter(
-    (todo) => todo.completed === false,
+    (todo) => todo.completed === false
   );
-  list.replaceChildren('');
+  list_todo.replaceChildren("");
   MyTodos.renderTodos();
-  localStorage.setItem('todos', JSON.stringify(MyTodos.TodoList));
+  addToLocalStorage(MyTodos.TodoList);
 });
 
-input.addEventListener('keydown', (event) => {
-  if (event.code === 'Enter') {
-    const toDo = input.value;
-    if (toDo) {
-      MyTodos.addTodo(toDo, id);
-      id += 1;
-    }
-    input.value = '';
-  }
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  MyTodos.addTodoTask();
 });
 
-list.addEventListener('click', (event) => {
+list_todo.addEventListener("click", (event) => {
   const element = event.target;
-  if (element.getAttribute('name') === 'checkbox') {
+  if (element.getAttribute("name") === "checkbox") {
     MyTodos.completeTodo(element);
-  } else if (element.tagName === 'I') {
-    if (element.getAttribute('name') === 'update') {
+  } else if (element.tagName === "I") {
+    if (element.getAttribute("name") === "update") {
       MyTodos.updateTodo(element);
-    } else if (element.getAttribute('name') === 'remove') {
+    } else if (element.getAttribute("name") === "remove") {
       MyTodos.removeTodo(element);
     }
   }
