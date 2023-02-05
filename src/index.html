@@ -13,20 +13,21 @@
     <title>To Do List App</title>
   </head>
   <body>
-    <div class="app_container">
+    <section class="app_container">
       <div class="app_inner">
-        <div class="header">
+        <div class="todo-title">
           Today's To Do
           <div class="clear"><i class="fa-solid fa-arrows-rotate"></i></div>
         </div>
-        <div class="input_field">
-          <input type="text" id="input" placeholder="Add to your List" />
-        </div>
-        <ul id="list">
+        <form id="form">
+          <input type="text" id="input" class="input_field" placeholder="Add to your List" />
+          <button type="submit"><i class="fas fa-reply fa-xs"></i></button>
+        </form>
+        <ul id="todo-lists">
          
         </ul>
         <div class="clear_completed_todo">Clean all completed</div>
       </div>
-    </div>
+    </section>
   </body>
 </html>

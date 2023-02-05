@@ -1,10 +1,25 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: #d5d7df;
+  width: 100%;
+  height: 100%;
+  font-family: Georgia, Times, 'Times New Roman', serif;
+  font-size: 16px;
+}
+
+.clear_completed_todo,
+.app_container,
+.todo-title,
+#form,
+.task {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 ul {
@@ -15,29 +30,37 @@ i {
   cursor: pointer;
 }
 
+i:hover {
+  color: rgb(35, 33, 185);
+}
+
 .app_container {
   width: 100%;
   height: 100vh;
-  background-color: rgb(245, 243, 240);
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .app_inner {
-  width: 400px;
-  background-color: rgb(230, 241, 241);
-  box-shadow: 0 0 5px 0 rgba(128, 0, 0, 1);
+  width: 80%;
+  background-color: #fff;
+  border-radius: 6px;
   color: rgb(108, 113, 117);
   font-size: 14px;
   font-weight: 100;
+  height: auto;
+  box-shadow: 4px 4px 5px #36373a;
 }
 
-.header {
-  display: flex;
+.todo-title,
+#form,
+.task {
   justify-content: space-between;
-  padding: 15px 10px;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid #dadadc;
+  min-height: 30px;
+  max-height: 70px;
+  width: 95%;
+  margin: 0 auto;
+  gap: 15px;
+  padding: 0 5px;
 }
 
 .clear i:hover {
@@ -47,11 +70,6 @@ i {
 }
 
 .input_field {
-  padding: 5px 10px;
-  border-bottom: 1px solid;
-}
-
-.input_field > input {
   width: 100%;
   height: 35px;
   outline: none;
@@ -60,7 +78,19 @@ i {
   font-size: 15px;
 }
 
-.item.done input {
+.label {
+  width: fit-content;
+  padding-left: 10px;
+  color: #545862;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.label:hover {
+  cursor: text;
+}
+
+.done .label {
   text-decoration: line-through;
   color: var(--grey);
 }
@@ -69,27 +99,38 @@ i {
   font-style: italic;
 }
 
-#Todo {
-  width: 90%;
-
-  /* height: 35px; */
-  outline: none;
-  background-color: transparent;
-  border: none;
-  font-size: 15px;
-}
-
-ul > li {
+#todo-lists > li {
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid;
-  padding: 15px 10px;
 }
 
 .clear_completed_todo {
-  padding: 15px 10px;
-  text-align: center;
+  margin: 0 auto;
+  text-decoration: none;
+  color: #000;
+  opacity: 0.8;
+  height: 30px;
+  background-color: #787f96;
+  transition: 300ms;
+  font-size: 16px;
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.clear_completed_todo:hover {
+  text-decoration: none;
+  color: rgb(35, 33, 185);
+  opacity: 1;
+}
+
+@media all and (min-width: 768px) {
+  .app_inner {
+    width: 45%;
+    margin: 0 auto;
+  }
+
+  .label {
+    padding-left: 10px;
+  }
 }
