@@ -1,55 +1,82 @@
-const displayTaks = jest.fn();
-jest.mock("./displayTsks", () => displayTaks);
+import Todos from '../todos.js';
+import { getTasksFromLocalStorage, addToLocalStorage } from '../localStorage.js';
+import displayTasks from '../displayTasks.js';
 
-const getTasksFromLocalStorage = jest.fn(() => []);
-const addToLocalStorage = jest.fn();
-jest.mock("./localStorage", () => ({
-  getTasksFromLocalStorage,
-  addToLocalStorage,
-}));
+jest.mock('../localStorage.js');
+jest.mock('../displayTsks.js', () => jest.fn());
 
-const Todos = require("./todos").default;
-
-describe("Todos class", () => {
+describe('Todos class', () => {
   let todos;
+
   beforeEach(() => {
     todos = new Todos();
   });
 
-  test("should call getTasksFromLocalStorage on construction", () => {
-    expect(getTasksFromLocalStorage).toHaveBeenCalled();
+  afterEach(() => {
+    jest.resetAllMocks();
   });
 
-  test("should call displayTaks on renderTodos", () => {
-    todos.TodoList = [
-      { index: 0, description: "Todo 1", completed: false },
-      { index: 1, description: "Todo 2", completed: true },
-    ];
-    todos.renderTodos();
-    expect(displayTaks).toHaveBeenCalledWith(0, "Todo 1", "");
-    expect(displayTaks).toHaveBeenCalledWith(1, "Todo 2", "checked");
+  describe('constructor', () => {
+    it('should initialize TodoList with tasks from local storage', () => {
+      expect(getTasksFromLocalStorage).toHaveBeenCalledTimes(1);
+      expect(todos.TodoList).toEqual(getTasksFromLocalStorage());
+    });
   });
 
-  test("should call addToLocalStorage on addTodoTask", () => {
-    document.getElementById = jest.fn(() => ({ value: "Todo 1" }));
-    todos.addTodoTask();
-    expect(displayTaks).toHaveBeenCalledWith(0, "Todo 1", false);
-    expect(todos.TodoList).toEqual([
-      { index: 0, description: "Todo 1", completed: false },
-    ]);
-    expect(addToLocalStorage).toHaveBeenCalledWith([
-      { index: 0, description: "Todo 1", completed: false },
-    ]);
+  describe('renderTodos', () => {
+    it('should sort TodoList by index and display each task using displayTasks function', () => {
+      // Arrange
+      const mockTasks = [{ index: 2, description: 'Task 2', completed: true }, { index: 1, description: 'Task 1', completed: false }];
+      todos.TodoList = mockTasks;
+
+      // Act
+
+      todos.renderTodos();
+
+      // Assert
+
+      expect(todos.TodoList).toEqual(mockTasks.sort((a, b) => a.index - b.index));
+      expect(displayTasks).toHaveBeenCalledTimes(2);
+      expect(displayTasks).toHaveBeenCalledWith(1, 'Task 1', '');
+      expect(displayTasks).toHaveBeenCalledWith(2, 'Task 2', 'checked');
+    });
   });
 
-  test("should call addToLocalStorage on addTodo", () => {
-    todos.addTodo("Todo 1", 0);
-    expect(displayTaks).toHaveBeenCalledWith(0, "Todo 1", "");
-    expect(todos.TodoList).toEqual([
-      { index: 0, description: "Todo 1", completed: false },
-    ]);
-    expect(addToLocalStorage).toHaveBeenCalledWith([
-      { index: 0, description: "Todo 1", completed: false },
-    ]);
+  describe('addTodoTask', () => {
+    it('should add a new task to TodoList and update local storage', () => {
+      // Arrange
+      const todo = 'New task';
+      const mockTodoList = [{ index: 0, description: 'Task 1', completed: false }];
+      todos.TodoList = mockTodoList;
+      // Act
+      todos.addTodoTask(todo);
+
+      // Assert
+      expect(displayTasks).toHaveBeenCalledTimes(1);
+      expect(displayTasks).toHaveBeenCalledWith(1, 'New task', false);
+      expect(todos.TodoList.length).toBe(2);
+      expect(todos.TodoList[1]).toEqual({ index: 1, description: 'New task', completed: false });
+      expect(addToLocalStorage).toHaveBeenCalledTimes(1);
+      expect(addToLocalStorage).toHaveBeenCalledWith(todos.TodoList);
+    });
+  });
+
+  describe('removeTodo', () => {
+    it('should remove the specified todo from TodoList and update local storage', () => {
+      // Arrange
+      const mockTodoList = [{ index: 0, description: 'Task 1', completed: false }, { index: 1, description: 'Task 2', completed: true }, { index: 2, description: 'Task 3', completed: false }];
+
+      todos.TodoList = mockTodoList;
+
+      const expectedTodoList = [{ index: 0, description: 'Task 1', completed: false }, { index: 1, description: 'Task 3', completed: false }];
+
+      // Act
+      todos.removeTodo(1);
+
+      // Assert
+      expect(todos.TodoList).toEqual(expectedTodoList);
+      expect(addToLocalStorage).toHaveBeenCalledTimes(1);
+      expect(addToLocalStorage).toHaveBeenCalledWith(todos.TodoList);
+    });
   });
 });
