@@ -1,63 +1,155 @@
-# Microverse-ToDoList
+# TODO LIST
 
-HTML + JS project to implement an storage for a daily's tasks to do.
+# 📗 Table of Contents
+
+- [📗 Table of Contents](#-table-of-contents)
+- [📖 Todo List App ](#-todo-list-app-)
+  - [🛠 Built With ](#-built-with-)
+    - [Tech Stack ](#tech-stack-)
+    - [Key Features ](#key-features-)
+  - [🚀 Live Demo ](#-live-demo-)
+  - [💻 Getting Started ](#-getting-started-)
+    - [Prerequisites](#prerequisites)
+    - [Setup](#setup)
+    - [Install](#install)
+    - [Usage](#usage)
+    - [Run tests](#run-tests)
+    - [Deployment](#deployment)
+  - [👥 Authors ](#-authors-)
+  - [🔭 Future Features ](#-future-features-)
+  - [🤝 Contributing ](#-contributing-)
+  - [⭐️ Show your support ](#️-show-your-support-)
+  - [🙏 Acknowledgments ](#-acknowledgments-)
+  - [📝 License ](#-license-)
+
+# 📖 Todo-List <a name="about-project"></a>
+
+**Todo-List** is HTML + JS project to implement an storage for a daily's tasks to do.
 
 The functionality available is the Landing Page presenting the data saved on previous session into localStorage,and an input to add new task.
 
 Each Tasks have a button to remove them from the List and a checkBox to mark it as complete.
 
-## Built With
+## 🛠 Built With <a name="built-with"></a>
 
-- HTML
-- CSS
-- JavaScript
-- Webpack
+### Tech Stack <a name="tech-stack"></a>
 
-## Live Demo
+<details>
+  <summary>Stack</summary>
+  <ul>
+     <li><a>Html</a></li>
+     <li><a>Css</a></li>
+     <li><a>javascript</a></li>
+     <li><a>Webpack</a></li>
+     <li><a>Git & Github</a></li>
+  </ul>
+</details>
 
-[Demo](https://vanelnw.github.io/Microverse-To-Do-List/dist/)
+### Key Features <a name="key-features"></a>
 
-## Getting Started
+- **List todos**
+- **Add todo**
+- **Update todo**
+- **Delete todo**
+- **Store todos into localstorage**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🚀 Live Demo <a name="live-demo"></a>
+
+[Live Demo](https://vanelnw.github.io/Microverse-To-Do-List/dist/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 💻 Getting Started <a name="getting-started"></a>
+
+To get a local copy up and running, follow these steps.
+
+### Prerequisites
+
+In order to run this project you need:
+
+```sh
+ - IDE to edit and run the code (We use Visual Studio Code 🔥).
+- Git to versionning your work.
+```
+
+### Setup
+
+Clone this repository to your desired folder:
+
+```sh
+  cd my-folder
+  git clone https://github.com/vanelnw/Microverse-To-Do-List.git
+```
 
 ### Install
 
-- Create a folder into your storage device.
-- Open a command line Terminal and go to the new folder.
-- Execute: 'git clone https://github.com/vanelnw/Microverse-To-Do-List.git'
-- Open terminal and dir to Microverse-To-Do-List.git
-- Run npm install
-- Run npm run build
-- Run npm start then visit http://localhost:8080 in your browser.
+```sh
+cd Microverse-To-Do-List
+Run npm install
+Run npm run build
+Run npm start
+```
 
 ### Usage
 
-Once on the landing page, you can see the books stored in previous sessions, listed into the scrre, if you add a new book, it is visible in the list and added to the localStorage.
+- For anyone who wants to practice html5, css3 or/and javascript
+- For anyone who wants to create his own Website.
 
-If you remove some book, they are removed from screen and from local storage.
+### Run tests
 
-### Deployment
+To run tests, run the following command:
 
-Not available yet.
+```sh
+  npm run test
+```
 
-## Authors
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### 👤 Vanel Nwaba
+## 👥 Authors <a name="authors"></a>
 
-- GitHub: [vanelnw](https://github.com/vanelnw)
-- LinkedIn: [vanel-nw](https://www.linkedin.com/in/vanel-nw)
+👤 **Vanel Nwaba**
 
-## 🤝 Contributing
+- GitHub: [@vanelnw](https://github.com/vanelnw)
+- LinkedIn: [Vanel Nwaba](https://www.linkedin.com/in/va-nw/)
+- Twitter: [@vanelnw](#)
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🔭 Future Features <a name="future-features"></a>
+
+- [ ] **Add authentification**
+- [ ] **Implement the mobile version**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🤝 Contributing <a name="contributing"></a>
 
 Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](../../issues/).
 
-## Show your support
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-Give a ⭐️ if you like this project!
+## ⭐️ Show your support <a name="support"></a>
 
-## Acknowledgments
+If you like this project consider giving it a star ⭐️.
 
-## 📝 License
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+Special thank to:
+
+- Coding partners
+- Code reviewers
+- Microverse program
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE) licensed.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>

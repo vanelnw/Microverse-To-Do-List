@@ -1,37 +1,39 @@
 import './style.css';
 import Todos from './todos.js';
-import { addToLocalStorage } from './localStorage';
+import { addToLocalStorage } from './localStorage.js';
 
-const listTodo = document.getElementById('todo-lists');
-const clearCompleteTodo = document.querySelector('.clear_completed_todo');
-const clearAll = document.querySelector('.clear');
+const todoList = document.getElementById('todo-lists');
+const clearCompletedBtn = document.querySelector('.clear_completed_todo');
+const clearAllBtn = document.querySelector('.clear');
 const form = document.getElementById('form');
 
 const MyTodos = new Todos();
 
 MyTodos.renderTodos();
 
-clearAll.addEventListener('click', () => {
+clearAllBtn.addEventListener('click', () => {
   MyTodos.TodoList = [];
-  listTodo.replaceChildren('');
+  todoList.replaceChildren('');
   addToLocalStorage(MyTodos.TodoList);
 });
 
-clearCompleteTodo.addEventListener('click', () => {
+clearCompletedBtn.addEventListener('click', () => {
   MyTodos.TodoList = MyTodos.TodoList.filter(
     (todo) => todo.completed === false,
   );
-  listTodo.replaceChildren('');
+  todoList.replaceChildren('');
   MyTodos.renderTodos();
   addToLocalStorage(MyTodos.TodoList);
 });
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  MyTodos.addTodoTask();
+  const input = document.getElementById('input');
+  MyTodos.addTodoTask(input.value);
+  input.value = '';
 });
 
-listTodo.addEventListener('click', (event) => {
+todoList.addEventListener('click', (event) => {
   const element = event.target;
   if (element.getAttribute('name') === 'checkbox') {
     MyTodos.completeTodo(element);
@@ -39,7 +41,8 @@ listTodo.addEventListener('click', (event) => {
     if (element.getAttribute('name') === 'update') {
       MyTodos.updateTodo(element);
     } else if (element.getAttribute('name') === 'remove') {
-      MyTodos.removeTodo(element);
+      element.parentNode.parentNode.replaceChildren('');
+      MyTodos.removeTodo(element.id);
     }
   }
 });
