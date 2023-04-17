@@ -69,6 +69,7 @@ export default class Todos {
     }
     element.parentNode.parentNode.replaceChildren('');
     this.renderTodos();
+
     addToLocalStorage(this.TodoList);
   }
 
