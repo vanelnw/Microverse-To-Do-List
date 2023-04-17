@@ -1,5 +1,5 @@
+import displayTaks from './displayTsks';
 import { getTasksFromLocalStorage, addToLocalStorage } from './localStorage';
-import displayTasks from './displayTasks';
 
 export default class Todos {
   constructor() {
@@ -9,15 +9,17 @@ export default class Todos {
   renderTodos() {
     this.TodoList.sort((a, b) => a.index - b.index).forEach((todo) => {
       const checked = todo.completed ? 'checked' : '';
-      displayTasks(todo.index, todo.description, checked);
+      displayTaks(todo.index, todo.description, checked);
     });
   }
 
-  addTodoTask(todo) {
+  addTodoTask() {
     const id = this.TodoList.length;
+    const input = document.getElementById('input');
+    const todo = input.value;
 
     if (todo) {
-      displayTasks(id, todo, false);
+      displayTaks(id, todo, false);
 
       this.TodoList.push({
         index: id,
@@ -26,7 +28,22 @@ export default class Todos {
       });
 
       addToLocalStorage(this.TodoList);
+      input.value = '';
     }
+  }
+
+  addTodo(todo, id, status = false) {
+    const checked = status ? 'checked' : '';
+
+    displayTaks(id, todo, checked);
+
+    this.TodoList.push({
+      index: id,
+      description: todo,
+      completed: false,
+    });
+
+    addToLocalStorage(this.TodoList);
   }
 
   completeTodo(element) {
@@ -40,8 +57,8 @@ export default class Todos {
     addToLocalStorage(this.TodoList);
   }
 
-  removeTodo(id) {
-    const currentTodoId = parseInt(id, 10);
+  removeTodo(element) {
+    const currentTodoId = parseInt(element.id, 10);
 
     this.TodoList = this.TodoList.filter(
       (todo) => todo.index !== currentTodoId,
@@ -50,10 +67,9 @@ export default class Todos {
     for (let i = currentTodoId; i < this.TodoList.length; i += 1) {
       this.TodoList[i].index -= 1;
     }
-
-    addToLocalStorage(this.TodoList);
-
+    element.parentNode.parentNode.replaceChildren('');
     this.renderTodos();
+    addToLocalStorage(this.TodoList);
   }
 
   updateTodo(element) {
@@ -71,7 +87,7 @@ export default class Todos {
         parent.style.backgroundColor = 'transparent';
         element.classList = 'fa-solid fa-ellipsis-vertical';
         element.setAttribute('name', 'update');
-        this.TodoList[parseInt(element.id, 10)].description = event.target.value;
+        this.TodoList[element.id].description = event.target.value;
 
         addToLocalStorage(this.TodoList);
       }
