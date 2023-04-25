@@ -71,7 +71,7 @@ In order to run this project you need:
 
 ```sh
  - IDE to edit and run the code (We use Visual Studio Code 🔥).
-- Git to versionning your work.
+ - Git to versionning your work.
 ```
 
 ### Setup
@@ -103,6 +103,12 @@ To run tests, run the following command:
 
 ```sh
   npm run test
+```
+
+### Deployment
+
+```sh
+  Github page
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
