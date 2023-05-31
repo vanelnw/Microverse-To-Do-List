@@ -1,8 +1,12 @@
+<div align="center">
+  <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
+  <br/>
+</div>
+
 # TODO LIST
 
 # 📗 Table of Contents
 
-- [📗 Table of Contents](#-table-of-contents)
 - [📖 Todo List App ](#-todo-list-app-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
@@ -22,13 +26,9 @@
   - [🙏 Acknowledgments ](#-acknowledgments-)
   - [📝 License ](#-license-)
 
-# 📖 Todo-List <a name="about-project"></a>
+# 📖 Todo List <a name="Todo List"></a>
 
-**Todo-List** is HTML + JS project to implement an storage for a daily's tasks to do.
-
-The functionality available is the Landing Page presenting the data saved on previous session into localStorage,and an input to add new task.
-
-Each Tasks have a button to remove them from the List and a checkBox to mark it as complete.
+**Todo List** is a Javascript project to Add and storage daily's tasks.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -70,7 +70,8 @@ To get a local copy up and running, follow these steps.
 In order to run this project you need:
 
 ```sh
- - IDE to edit and run the code (We use Visual Studio Code 🔥).
+ - node.js
+ - IDE to edit and run the code (We used Visual Studio Code 🔥).
  - Git to versionning your work.
 ```
 
@@ -79,30 +80,32 @@ In order to run this project you need:
 Clone this repository to your desired folder:
 
 ```sh
-  cd my-folder
-  git clone https://github.com/vanelnw/Microverse-To-Do-List.git
+  - Open your terminal
+  - Navigate to the directory where you want to clone the project.
+  - Clone the project using by running the following command:
+  
+  `git clone https://github.com/vanelnw/Microverse-To-Do-List.git`
 ```
 
 ### Install
 
 ```sh
-cd Microverse-To-Do-List
-Run npm install
-Run npm run build
-Run npm start
+  - cd Microverse-To-Do-List
+  - Run `npm install`
 ```
 
 ### Usage
+To run the project, execute the following commands:
 
-- For anyone who wants to practice html5, css3 or/and javascript
-- For anyone who wants to create his own Website.
+- `npm run build`
+- `npm start`
 
 ### Run tests
 
 To run tests, run the following command:
 
 ```sh
-  npm run test
+  `npm run test`
 ```
 
 ### Deployment
@@ -121,13 +124,11 @@ To run tests, run the following command:
 - LinkedIn: [Vanel Nwaba](https://www.linkedin.com/in/va-nw/)
 - Twitter: [@vanelnw](#)
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Add authentification**
-- [ ] **Implement the mobile version**
+- **Implement the mobile version**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -141,16 +142,13 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-If you like this project consider giving it a star ⭐️.
+If you like this project consider giving a star ⭐️.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
-Special thank to:
 
-- Coding partners
-- Code reviewers
-- Microverse program
+N/A
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
