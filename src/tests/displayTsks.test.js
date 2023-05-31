@@ -1,4 +1,4 @@
-import displayTasks from '../displayTasks.js';
+import displayTasks from '../modules/displayTasks';
 
 describe('displayTasks function', () => {
   test('should create a new task item in the list with the correct values', () => {

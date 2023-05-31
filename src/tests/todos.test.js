@@ -1,9 +1,9 @@
-import Todos from '../todos.js';
-import { getTasksFromLocalStorage, addToLocalStorage } from '../localStorage.js';
-import displayTasks from '../displayTasks.js';
+import Todos from '../modules/todos';
+import { getTasksFromLocalStorage, addToLocalStorage } from '../modules/localStorage';
+import displayTasks from '../modules/displayTasks';
 
-jest.mock('../localStorage.js');
-jest.mock('../displayTsks.js', () => jest.fn());
+jest.mock('../modules/localStorage.js');
+jest.mock('../modules/displayTasks.js', () => jest.fn());
 
 describe('Todos class', () => {
   let todos;
@@ -30,11 +30,9 @@ describe('Todos class', () => {
       todos.TodoList = mockTasks;
 
       // Act
-
       todos.renderTodos();
 
       // Assert
-
       expect(todos.TodoList).toEqual(mockTasks.sort((a, b) => a.index - b.index));
       expect(displayTasks).toHaveBeenCalledTimes(2);
       expect(displayTasks).toHaveBeenCalledWith(1, 'Task 1', '');
@@ -48,6 +46,7 @@ describe('Todos class', () => {
       const todo = 'New task';
       const mockTodoList = [{ index: 0, description: 'Task 1', completed: false }];
       todos.TodoList = mockTodoList;
+
       // Act
       todos.addTodoTask(todo);
 
@@ -65,9 +64,7 @@ describe('Todos class', () => {
     it('should remove the specified todo from TodoList and update local storage', () => {
       // Arrange
       const mockTodoList = [{ index: 0, description: 'Task 1', completed: false }, { index: 1, description: 'Task 2', completed: true }, { index: 2, description: 'Task 3', completed: false }];
-
       todos.TodoList = mockTodoList;
-
       const expectedTodoList = [{ index: 0, description: 'Task 1', completed: false }, { index: 1, description: 'Task 3', completed: false }];
 
       // Act

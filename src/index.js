@@ -1,6 +1,6 @@
 import './style.css';
-import Todos from './todos.js';
-import { addToLocalStorage } from './localStorage.js';
+import Todos from './modules/todos';
+import { addToLocalStorage } from './modules/localStorage';
 
 const todoList = document.getElementById('todo-lists');
 const clearCompletedBtn = document.querySelector('.clear_completed_todo');

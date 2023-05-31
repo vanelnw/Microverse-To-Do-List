@@ -1,5 +1,5 @@
-import { getTasksFromLocalStorage, addToLocalStorage } from './localStorage.js';
-import displayTasks from './displayTasks.js';
+import { getTasksFromLocalStorage, addToLocalStorage } from './localStorage';
+import displayTasks from './displayTasks';
 
 export default class Todos {
   constructor() {
