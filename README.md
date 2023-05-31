@@ -34,8 +34,6 @@
 
 ### Tech Stack <a name="tech-stack"></a>
 
-<details>
-  <summary>Stack</summary>
   <ul>
      <li><a>Html</a></li>
      <li><a>Css</a></li>
@@ -43,7 +41,6 @@
      <li><a>Webpack</a></li>
      <li><a>Git & Github</a></li>
   </ul>
-</details>
 
 ### Key Features <a name="key-features"></a>
 
